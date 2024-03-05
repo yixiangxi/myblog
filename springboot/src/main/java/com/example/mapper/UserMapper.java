@@ -1,9 +1,7 @@
 package com.example.mapper;
 
-import com.example.entity.Admin;
 import com.example.entity.User;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 public interface UserMapper {
