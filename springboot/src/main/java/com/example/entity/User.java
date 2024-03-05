@@ -5,7 +5,7 @@
  **/
 package com.example.entity;
 
-public class User {
+public class User extends Account {
    private Integer id       ;
    private String username ;
    private String password ;

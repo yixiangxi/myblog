@@ -81,8 +81,8 @@ export default {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
     }
   },
-  created() {
-    if (!this.user.id) {
+  created() {//防止普通权限用户跳转到后台管理页面，user.id和角色必须为管理员才可以进行页面跳转，跳转到后台
+    if (!this.user.id||this.user.role!=='ADMIN') {
       this.$router.push('/login')
     }
   },

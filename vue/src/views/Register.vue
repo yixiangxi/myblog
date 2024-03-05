@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <div style="width: 400px; padding: 30px; background-color: white; border-radius: 5px;">
-      <div style="text-align: center; font-size: 20px; margin-bottom: 20px; color: #333">欢迎注册</div>
+    <div style="width: 400px; padding: 30px; background-color: white; border-radius: 5px; backdrop-filter: blur(10px);background-color: rgba(255, 255, 255, 0.5);">
+      <div style="text-align: center; font-size: 20px; margin-bottom: 20px; color: #333">欢迎加入我们</div>
       <el-form :model="form" :rules="rules" ref="formRef">
         <el-form-item prop="username">
-          <el-input prefix-icon="el-icon-user" placeholder="请输入账号" v-model="form.username"></el-input>
+          <el-input   prefix-icon="el-icon-user" placeholder="请输入账号" v-model="form.username"></el-input>
         </el-form-item>
         <el-form-item prop="password">
           <el-input prefix-icon="el-icon-lock" placeholder="请输入密码" show-password  v-model="form.password"></el-input>
@@ -41,7 +41,7 @@ export default {
       }
     }
     return {
-      form: {},
+      form: {role:'USER'},
       rules: {
         username: [
           { required: true, message: '请输入账号', trigger: 'blur' },
@@ -83,7 +83,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   background-image: url("@/assets/imgs/bg1.jpg");
-  background-size: 100%;
+  background-size:100%;
   display: flex;
   align-items: center;
   justify-content: center;

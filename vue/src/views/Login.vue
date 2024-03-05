@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div style="width: 400px; padding: 30px; background-color: white; border-radius: 5px;">
+    <div style="width: 400px; padding: 30px; background-color: white; border-radius: 5px;backdrop-filter: blur(10px);background-color: rgba(255, 255, 255, 0.5);">
       <div style="text-align: center; font-size: 30px; margin-bottom: 20px; color: #333">yixiangxi的小家</div>
       <el-form :model="form" :rules="rules" ref="formRef">
         <el-form-item prop="username">
@@ -19,7 +19,7 @@
 
         <el-form-item prop="code">
           <div style="display: flex">
-            <el-input style="flex: 1"></el-input>
+            <el-input style="flex: 1" v-model="code" placeholder="验证码" size="medium"></el-input>
             <Identify :identifyCode="identifyCode" @click.native="refreshCode"/>
 
           </div>
@@ -30,12 +30,16 @@
           <el-button style="width: 100%; background-color: #333; border-color: #333; color: white" @click="login">登 录
           </el-button>
         </el-form-item>
-        <!--        <div style="display: flex; align-items: center">-->
-        <!--          <div style="flex: 1"></div>-->
-        <!--          <div style="flex: 1; text-align: right">-->
-        <!--            还没有账号？请 <a href="/register">注册</a>-->
-        <!--          </div>-->
-        <!--        </div>-->
+
+
+        <div style="display: flex; align-items: center">
+          <div style="flex: 1"></div>
+          <div style="flex: 1; text-align: right">
+            还没有账号？请 <a href="/register">注册</a>
+
+
+          </div>
+        </div>
       </el-form>
     </div>
   </div>
@@ -93,12 +97,12 @@ export default {
     },
 
     login() {
-      if(!this.code){
+      if (!this.code) {
         this.$message.warning("请输入验证码");
         this.refreshCode();
         return
       }
-      if(this.code.toLocaleLowerCase()!==this.identifyCode.toLocaleLowerCase()){
+      if (this.code.toLocaleLowerCase() !== this.identifyCode.toLocaleLowerCase()) {
         this.$message.warning("请输入正确的验证码");
         this.refreshCode();
         return;
@@ -110,10 +114,18 @@ export default {
           this.$request.post('/login', this.form).then(res => {
             if (res.code === '200') {
               localStorage.setItem("xm-user", JSON.stringify(res.data))  // 存储用户数据
-              this.$router.push('/')  // 跳转主页
-              this.$message.success('登录成功')
+              this.$message.success("登录成功");
+              setTimeout(() => {
+                if (res.data.role === "ADMIN") {
+                  location.href = '/home'
+                } else {
+                  location.href = '/front/home'
+                }
+              }, 500)
+
             } else {
-              this.$message.error(res.msg)
+              this.$message.error(res.msg);
+              this.refreshCode();
             }
           })
         }
