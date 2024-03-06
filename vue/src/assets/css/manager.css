@@ -5,37 +5,36 @@
 
 .manager-header {
     display: flex;
-    background-color: #fff;
+    background-color: #f96332;
+    height: 50px;
 }
 
 .manager-header-left {
-    width: 200px;
-    height: 60px;
+    width: 250px;
+    height: 50px;
     padding-left: 10px;
     display: flex;
-    align-items: center;
-    background-color: #0376bf;
+    align-items: center
 }
 
 .manager-header-left img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
 .manager-header-left .title {
     flex: 1;
     margin-left: 5px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    color: #eee
+    color: #fff
 }
 
 .manager-header-center {
     flex: 1;
     width: 0;
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
+    align-items: center
 }
 
 .manager-header-right {
@@ -43,14 +42,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border-bottom: 1px solid #ddd;
 }
 
 .manager-header-right .avatar {
     display: flex;
     align-items: center;
     padding-right: 10px;
-    color: #333;
+    color: #fff;
     cursor: default
 }
 
@@ -68,7 +66,7 @@
 .manager-main-left {
     width: 200px;
     min-height: calc(100vh - 60px);
-    /*box-shadow: 0 0 6px rgba(0, 21, 41, .35);*/
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 }
 
 .manager-main-right {
@@ -115,50 +113,47 @@
 .el-menu {
     width: 200px;
     height: 100%;
-    background-color: #0376bf;
+    background-color: #fff;
 }
 
 .el-submenu__title {
-    color: #ddd;
+    color: #878787;
     height: 50px;
     line-height: 50px;
 }
 
 .el-menu-item {
-    color: #ddd;
+    color: #878787;
     height: 50px;
     line-height: 50px;
-    background-color: #0376bf !important; /* 必须加上这个背景色，否则鼠标离开会出现白色 */
+    background-color: #fff !important; /* 必须加上这个背景色，否则鼠标离开会出现白色 */
 }
 
-.el-submenu__title i, .el-menu-item i {
-    color: #ddd;
+.el-menu-item.is-active {
+    color: #f96332;
+    border-left: 3px solid #f96332;
 }
+
 .el-menu--inline .el-menu-item {
     padding-left: 50px !important;
 }
 
-.el-menu-item.is-active {
-    background-color: #2bb7e5 !important;
-    color: #fff;
-}
-
 .el-menu .is-active {
-    color: #fff !important;
+    color: #f96332 !important;
 }
 
 .el-submenu__title:hover {
-    background-color: #0376bf !important;
-    color: #fff;
+    background-color: #f9ece6 !important;
 }
 
 .el-menu-item:not(.is-active):hover {
-    background-color: #3691cc !important;
-    color: #fff;
+    /*background-color: #0376bf !important;*/
+    /*color: #fff;*/
 }
 
-.el-submenu__title:hover i {
-    color: #fff !important;
+.el-menu-item:hover {
+    background-color: #f9ece6 !important;
+    color: #f96332;
 }
 
 .el-submenu__icon-arrow {
@@ -166,18 +161,26 @@
 }
 
 .el-breadcrumb__inner {
-    color: #333 !important;
+    color: #fff !important;
 }
-
+.el-breadcrumb__separator {
+    color: #fff;
+}
+.el-breadcrumb {
+    margin-left: 10px;
+}
 .el-dropdown-menu {
     margin-top: 20px !important;
 }
 
-.el-breadcrumb {
-    margin-left: 10px;
+th.el-table__cell {
+    background-color: white !important;
+    color: #666;
 }
 
-th.el-table__cell {
-    background-color: #f8f8f8 !important;
-    color: #666;
+.is-active .el-submenu__title {
+    color: #f96332 !important;
+}
+.is-active i {
+    color: #f96332 !important;
 }
