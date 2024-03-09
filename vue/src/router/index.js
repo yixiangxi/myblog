@@ -27,6 +27,7 @@ const routes = [
       { path: 'category', name: 'Category', meta: { name: '博客分类' }, component: () => import('../views/manager/Category') },
       { path: 'blog', name: 'Blog', meta: { name: '博客信息' }, component: () => import('../views/manager/Blog') },
       { path: 'parent', name: 'Parent', meta: { name: 'Parent' }, component: () => import('../views/manager/Parent') },
+      { path: 'activity', name: 'Activity', meta: { name: '活动信息' }, component: () => import('../views/manager/Activity') },
 
 
 
