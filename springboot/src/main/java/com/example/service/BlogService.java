@@ -9,7 +9,9 @@ import com.example.mapper.BlogMapper;
 import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -30,7 +32,7 @@ public class BlogService {
     public void add(Blog blog) {
 
         Account currentUser = TokenUtils.getCurrentUser();
-        if(RoleEnum.USER.name().equals(currentUser.getRole())){
+        if (RoleEnum.USER.name().equals(currentUser.getRole())) {
             blog.setUserId(currentUser.getId());
         }
         blog.setDate(DateUtil.today());
@@ -83,4 +85,13 @@ public class BlogService {
         return PageInfo.of(list);
     }
 
+    /**
+     * 查询榜单
+     */
+    public List<Blog> selectTop() {
+        List<Blog> blogList = this.selectAll(null);
+        blogList = blogList.stream().sorted((b1, b2) -> b2.getReadCount().compareTo(b1.getReadCount()))
+                .limit(20).collect(Collectors.toList());
+        return blogList;
+    }
 }

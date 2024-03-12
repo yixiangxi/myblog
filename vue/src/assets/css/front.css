@@ -1,7 +1,11 @@
+body{
+    background-color: #eceeef;
+}
 .front-notice {
     padding: 5px 20px;
     color: #666;
-    font-size: 12px
+    font-size: 12px;
+    background-color: #ffffff;
 }
 .front-header {
     display: flex;
@@ -11,7 +15,7 @@
     background: white;
 }
 .front-header-left {
-    width: 350px;
+    width: 280px;
     display: flex;
     align-items: center;
     padding-left: 30px;
@@ -49,11 +53,17 @@
 
 /*页面具体样式自定义*/
 .main-content {
-    width: 100%;
+    width: 80%;
     margin: 5px auto;
 }
 /* ElementUI 样式覆盖 */
 .el-menu.el-menu--horizontal {
     border: none !important;
     height: 59px;
+}
+.el-menu-item.is-active{
+    color: #f96332 !important;
+}
+.el-menu-item:not(.is-active):hover{
+    color: #db8c10 !important;
 }

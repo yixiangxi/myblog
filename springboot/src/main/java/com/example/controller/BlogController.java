@@ -82,5 +82,14 @@ public class BlogController {
         PageInfo<Blog> page = blogService.selectPage(blog, pageNum, pageSize);
         return Result.success(page);
     }
+    /**
+     * 查询榜单
+     */
+    @GetMapping("/selectTop")
+    public Result selectTop(Blog blog) {
+        List<Blog> list = blogService.selectTop();
+        return Result.success(list);
+
+    }
 
 }
