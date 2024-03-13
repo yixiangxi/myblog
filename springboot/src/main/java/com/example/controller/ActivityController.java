@@ -8,6 +8,7 @@ package com.example.controller;
 import com.example.common.Result;
 import com.example.entity.Activity;
 
+import com.example.entity.Blog;
 import com.example.service.ActivityService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
@@ -89,5 +90,16 @@ public class ActivityController {
         PageInfo<Activity> page = activityService.selectPage(activity, pageNum, pageSize);
         return Result.success(page);
     }
+
+    /**
+     * 查询榜单
+     */
+    @GetMapping("/selectTop")
+    public Result selectTop(Activity activity) {
+        List<Activity> list = activityService.selectTop();
+        return Result.success(list);
+
+    }
+
 
 }

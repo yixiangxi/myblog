@@ -40,9 +40,10 @@ const routes = [
     name: 'Front',
     component: () => import('../views/Front.vue'),
     children: [
-      { path: 'home', name: 'FHome', meta: { name: '系统首页' }, component: () => import('../views/front/Home') },
+      { path: 'home', name: 'FrontHome', meta: { name: '系统首页' }, component: () => import('../views/front/Home') },
 
       { path: 'person', name: 'Person', meta: { name: '个人信息' }, component: () => import('../views/front/Person') },
+      { path: 'BlogDetail', name: 'BlogDetail', meta: { name: '博客详情页' }, component: () => import('../views/front/BlogDetail') },
     ]
   },
 

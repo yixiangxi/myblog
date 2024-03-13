@@ -78,4 +78,10 @@ public class ActivityService {
         return PageInfo.of(list);
     }
 
+    public List<Activity> selectTop() {
+        List<Activity> activityList = this.selectAll(null);
+        activityList = activityList.stream().sorted((b1, b2) -> b2.getReadCount().compareTo(b1.getReadCount()))
+                .limit(3).collect(Collectors.toList());
+        return activityList;
+    }
 }
